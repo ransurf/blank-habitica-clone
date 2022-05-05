@@ -20,7 +20,6 @@ interface MyFormValues {
 }
 
 const UserInfoForm: FC<{}> = () => {
-  const userID = useSelector((state: RootState) => state.userID.userID);
   const dispatch = useDispatch();
   const initialValues: MyFormValues = {
     userID: "",
