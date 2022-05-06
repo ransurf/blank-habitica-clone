@@ -10,9 +10,8 @@ export async function getStats(username: string, credentials: string): Promise<a
             "x-api-user": username,
             "x-api-key": credentials,
         },
-    })
-    const json = await response.json();
-    return json;
+    }).then(response => response.json());
+    return response;
 }
 
 export async function scoreTask(username: string, credentials: string, taskID: string, direction: string) {
