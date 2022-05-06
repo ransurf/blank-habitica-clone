@@ -15,9 +15,18 @@ export const userIDSlice = createSlice({
       //state is current state, payload is the apiKey
       state.apiKey = action.payload;
     },
+    setUserInfo: (state, action) => {
+      //state is current state, payload is the userID
+      console.log("setUserInfo called");
+      console.log(action.payload);
+      
+      state.userID = action.payload.userID;
+      state.apiKey = action.payload.apiKey;
+    }
   },
 });
 
-export const { setUserID, setApiKey } = userIDSlice.actions;
+
+export const { setUserID, setApiKey, setUserInfo } = userIDSlice.actions;
 
 export default userIDSlice.reducer;

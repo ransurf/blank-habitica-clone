@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setUserID, setApiKey } from "../slices/userInfo/userInfo";
+import { setUserInfo} from "../slices/userInfo";
 import {
   Formik,
   FormikHelpers,
@@ -28,8 +28,13 @@ const UserInfoForm: FC<{}> = () => {
 
   const handleSubmit = (values: MyFormValues) => {
     console.log("values", values);
-    dispatch(setUserID(values.userID));
-    dispatch(setApiKey(values.apiKey));
+
+    const userInfo = {
+      userID: values.userID,
+      apiKey: values.apiKey,
+    };
+
+    dispatch(setUserInfo(userInfo));
   };
 
   return (
