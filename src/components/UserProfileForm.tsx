@@ -22,24 +22,24 @@ import { userProfileSelectors } from "../slices/userProfile";
 const UserProfileForm: React.FC = () => {
 
   const userToDisplay = useSelector((state: RootState) => state.userProfile.userToDisplay);
-  const [initUserProfile, setInitUserProfile] = useState({
-    username: "",
-    description: "",
-  });
+  // const [initUserProfile, setInitUserProfile] = useState({
+  //   username: "",
+  //   description: "",
+  // });
   const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("useEffect called");
     const state = store.getState();
     const userProfile = userProfileSelectors.selectById(state, userToDisplay);
-    if (userProfile) {
-      setInitUserProfile({
-        username: userProfile.username,
-        description: userProfile.description,
-      })
-    }
-    setText(initUserProfile.description);
-  }, [userToDisplay, initUserProfile]);
+    // if (userProfile) {
+    //   console.log("userProfile found");
+    //   setInitUserProfile(userProfile);
+    // }
+    console.log("userProfile", userProfile);
+    // console.log("initUserProfile", initUserProfile);
+    setText(userProfile?.description || "");
+  }, [userToDisplay]);
 
 
   // stores quill value
@@ -47,7 +47,7 @@ const UserProfileForm: React.FC = () => {
 
   const onChange = (text: any) => {
 
-    console.log("onchange for username ", initUserProfile.username);
+    // console.log("onchange for username ", initUserProfile.username);
 
     //updates quill
     setText(text);
