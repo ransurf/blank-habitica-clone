@@ -2,13 +2,15 @@ import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/
 import userInfoReducer from '../slices/userInfo'
 import userInfoSaga from '../sagas/userInfoSaga'
 import createSagaMiddleware from 'redux-saga'
+import userProfileReducer from '../slices/userProfile';
 
 const sagaMiddleWare = createSagaMiddleware()
 
 const middleware = (getDefaultMiddleware: any) => [...getDefaultMiddleware(), sagaMiddleWare]
 export const store = configureStore({
     reducer: {
-        userInfo: userInfoReducer
+        userInfo: userInfoReducer,
+        userProfile: userProfileReducer
 
     },
     middleware: middleware

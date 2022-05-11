@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
+
+
 
 export const userIDSlice = createSlice({
   name: "userInfo",
@@ -9,6 +11,7 @@ export const userIDSlice = createSlice({
   reducers: {
     setUserID: (state, action) => {
       //state is current state, payload is the userID
+      console.log("setUserID called");
       state.userID = action.payload;
     },
     setApiKey: (state, action) => {
@@ -23,6 +26,7 @@ export const userIDSlice = createSlice({
       state.userID = action.payload.userID;
       state.apiKey = action.payload.apiKey;
     }
+
   },
 });
 
